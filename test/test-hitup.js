@@ -23,12 +23,12 @@ describe('Users', function() {
 
 
 	// TEST 1 - check for status 200.  Basically, a helloworld.
-	it('should list users on GET', function() {
+	it('Return status 200', function() {
 		return chai.request(app)
 			.get('/')
 			.then(function(res) {
 				expect(res).to.have.status(200);
-				expect(res).to.be.json;
+				//expect(res).to.be.json;
 			});
 	});
 

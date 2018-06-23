@@ -15,14 +15,9 @@ const { PORT, DATABASE_URL } = require('./config');
 const app = express();
 app.use(express.json());
 
-// GET requests to /restaurants => return 10 restaurants
-app.get('/', (req, res) => {
-	res.status(200).json({ message: 'It works' });
-});
+app.use(express.static("Public"));
 
 
-
-// catch-all endpoint if client makes request to non-existent endpoint
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });
 });
@@ -68,8 +63,6 @@ function closeServer() {
   });
 }
 
-// if server.js is called directly (aka, with `node server.js`), this block
-// runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
   runServer(DATABASE_URL).catch(err => console.error(err));
 }
