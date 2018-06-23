@@ -10,13 +10,19 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('Users', function() {
+	
+	// BEFORE
 	before(function() {
-		return runServer(TEST_DATABASE_URL);
+		return runServer(TEST_DATABASE_URL); // Use TEST DB
 	});
-
+	
+	// AFTER
 	after(function() {
 		return closeServer();
 	});
+
+
+	// TEST 1 - check for status 200.  Basically, a helloworld.
 	it('should list users on GET', function() {
 		return chai.request(app)
 			.get('/')
@@ -25,5 +31,6 @@ describe('Users', function() {
 				expect(res).to.be.json;
 			});
 	});
+
 });
 
