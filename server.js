@@ -15,8 +15,8 @@ const { PORT, DATABASE_URL } = require('./config');
 const app = express();
 app.use(express.json());
 
-//app.use(express.static("Public"));
-app.get('/', (req,res)=> res.sendFile(__dirname + "/Public/index.html"));
+app.use(express.static("Public"));
+//app.get('/', (req,res)=> res.sendFile(__dirname + "/Public/index.html"));
 
 
 app.use('*', function (req, res) {

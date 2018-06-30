@@ -1,5 +1,5 @@
 
-let MOCK_EMPLOYEED_DATA {
+let MOCK_EMPLOYEED_DATA = {
 	"empolyees": [
 	{
 		"_id": "11111",
@@ -23,8 +23,8 @@ let MOCK_EMPLOYEED_DATA {
 		"billRate": "25.00",
 		"OTBillRate": "32.0",
 		"paidHolidays": "no",
-		"startDate": 01.01.2000,
-		"endDate": 01.02.2000,
+//		"startDate": ,
+//		"endDate": ,
 		"length": "3 mo"
 	},
 	{
@@ -49,8 +49,8 @@ let MOCK_EMPLOYEED_DATA {
 		"billRate": "35.00",
 		"OTBillRate": "42.0",
 		"paidHolidays": "no",
-		"startDate": 05.01.2010,
-		"endDate": ,
+//		"startDate": ,
+//		"endDate": ,
 		"length": "open"
 	},
 	{
@@ -75,35 +75,40 @@ let MOCK_EMPLOYEED_DATA {
 		"billRate": "99.00",
 		"OTBillRate": "99.0",
 		"paidHolidays": "no",
-		"startDate": 03.03.2015,
-		"endDate": ,
+//		"startDate": ,
+//		"endDate": ,
 		"length": "6 mo"
 	}
 	]
 };
 
 function getRecentStatusUpdates(callbackFn) {
-    setTimeout(function(){ callbackFn(MOCK_STATUS_UPDATES)}, 100);
+	setTimeout(function(){ callbackFn(MOCK_EMPLOYEED_DATA)}, 100);
 }
 
-// this function stays the same when we connect
-// to real API later
 function displayStatusUpdates(data) {
-    for (index in data.statusUpdates) {
-       $('body').append(
-        '<p>' + data.statusUpdates[index].text + '</p>');
-    }
+	for (index in data) {
+		$('.output').append(
+				'<p>' + data[index].text + '</p>');
+	}
 }
 
-// this function can stay the same even when we
-// are connecting to real API
-function getAndDisplayStatusUpdates() {
-    getRecentStatusUpdates(displayStatusUpdates);
+
+function watcher() {
+
+	console.log("hi");
+
+
+	$('form').submit(event=>{ 
+		event.preventDefault();
+		$('.output').html("HI");
+		let line= $('input[type="text"]').val();
+		// Some basic error checking of the input line:
+		peeps = line.split(/[;,]+/);
+		peeps = peeps.filter(Boolean); // remove newlines & spaces
+		peeps = Array.from(new Set(peeps)); // remove duplicates
+		displayStatusUpdates(MOCK_EMPLOYEED_DATA);
+	});
 }
 
-$(function() {
-    getAndDisplayStatusUpdates();
-});
-
-
-
+$(watcher);

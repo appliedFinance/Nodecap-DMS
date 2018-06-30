@@ -32,7 +32,8 @@ const employeeSchema = mongoose.Schema({
 });
 
 employeeSchema.virtual('fullName').get( function() {
-	return
+	return `${this.name.firstName} ${this.name.middleName} ${this.name.lastName}`;
+}
 
 employeeSchema.virtual('addressString').get( function() {
 	let s = `${this.address.street1}`.trim();
