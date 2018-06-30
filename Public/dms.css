@@ -1,13 +1,83 @@
-
-input[type=text] {
-	width: 80%;
-	padding: 5px 5px;
-	height: 30px;
-	font-size: 16px;
-	margin-bottom: 9px;
+* {
+	box-sizing: border-box;
 }
 
-.output {
-	position: relative;
-	font-family: Arial, Helvetica, sans-serif;
+body {
+	background: #e6e9ec;
+	background-image:  
+	linear-gradient(rgba(255,255,255,.1),
+						 rgba(255,255,255,.1)),
+	url("blue_gray_marble_seamless.jpg");
+	background-size: cover;
+	font-family: 'Roboto', 'New Times Roman', Serif;
 }
+
+.main {
+	border: 3px solid green;
+}
+
+.top-info-bar {
+	overflow: hidden;
+	background-color: #03037f; 
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.top-info-bar li {
+	float: left;
+	display: block;
+	font-size: 16pt;
+	list-style-type: none;
+	margin-bottom: 5px;
+	padding: 0px 7px 0px 7px; 
+	color: white;
+}
+
+.border {
+	border: 2px solid red;
+}
+.center { margin: auto; }
+
+/* ------ Main Menu Drop Down ------ */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+/* ------ Main Menu Drop Down ------ */
+
+.a-test {
+	border: 1px solid black;
+	margin: auto;
+}
+

@@ -2,32 +2,38 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Employee Database</title>
+		<title>yats system</title>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link href="dms.css" rel="stylesheet" type="text/css" />
 		<link href="grid.css" rel="stylesheet" type="text/css" />
+
 	</head>
-	<body>
-		<p>Employee Database!</p>
+	<body role="main">
+		<section name="TopBar">
+			<div class="top-info-bar">
+				<li><span class="user-name">USERNAME</span></li>
+			</div>
+		</section>
+		<div class="main">
+			<div class="row">
 
+				<div class="col-3 border">
+					<h1>Pineapple</h1>
+					<div class="js-main-menu"></div>
+				</div>
 
-		<form>
-			<input type="text"><br>
-			<button>Enter</button>
-			<button type="reset">Clear Input</button>
-			<input type="checkbox" id="trio-checkbox" checked="checked"/>
-			<label for="trio-checkbox">allow trio</label>
-		</form>
-		<div class="output"></div>
-		<button class="del">Delete Sets</button>
+				<div class="col-9 border">
+					<div class="js-data"></div>
+				</div>
 
-		</main>
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-			 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	 		 crossorigin="anonymous"></script>
-		<script src="dms.js"></script>
+			</div>
+		</div>
 	</body>
+	<script
+			 src="https://code.jquery.com/jquery-3.3.1.min.js"
+	 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script src="dms.js"></script>
 </html>
-
 
