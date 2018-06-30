@@ -14,9 +14,6 @@ function load_MockData() {
 		<div class="a-test">
 			<p>Some text some text some text some text..</p>
 			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
 		</div>
 		`);
 }
