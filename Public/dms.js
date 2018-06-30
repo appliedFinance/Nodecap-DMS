@@ -96,8 +96,7 @@ function displayStatusUpdates(data) {
 
 function watcher() {
 
-	console.log("hi");
-
+	console.log("Starting:");
 
 	$('form').submit(event=>{ 
 		event.preventDefault();
