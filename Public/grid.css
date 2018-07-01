@@ -40,6 +40,10 @@
     width: 50%;
   }
 
+  .col-9 {
+	  width: 75%;
+  }
+
   .col-12 {
     width: 100%;
   }
