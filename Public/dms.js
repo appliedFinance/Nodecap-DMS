@@ -15,16 +15,30 @@ function load_MainMenu() {
 		</div>
 		</div>
 		`);
+}
 
-	say("- load_MainMenu");
+function load_MockData() {
+	$('.js-data').html(`
+		<div class="a-test">
+			<p>Some text some text some text some text..</p>
+			<p>Some text some text some text some text..</p>
+			<p>Some text some text some text some text..</p>
+			<p>Some text some text some text some text..</p>
+			<p>Some text some text some text some text..</p>
+		</div>
+
+		<div class="a-test">
+			<p>Some text some text some text some text..</p>
+			<p>Some text some text some text some text..</p>
+		</div>
+		`);
 }
 
 
 function watcher() {
 	say("+ watcher");	
 	load_MainMenu();
-
-	say("- watcher");
+	load_MockData();
 };
 
 

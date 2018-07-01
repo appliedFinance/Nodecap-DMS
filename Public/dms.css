@@ -76,3 +76,7 @@ body {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 /* ------ Main Menu Drop Down ------ */
 
+.a-test {
+	border: 1px solid black;
+	margin: auto;
+}
