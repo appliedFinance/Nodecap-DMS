@@ -126,11 +126,21 @@ function renderEmpView(empdata) {
 	$('.js-employee').append(empdata);
 }
 
-
 function load_MainMenu() {
 	say("+ load_MainMenu");
 
+	$('.js-main-menu').html(`
+		<div class="dropdown">
+		<button class="dropbtn">Active Work</button>
+		<div class="dropdown-content">
+		<a href="#">Employees</a>
+		<a href="#">OnSite</a>
+		<a href="#">Invoices</a>
+		</div>
+		</div>
+		`);
 }
+
 
 function toggleViewPort() {
 	$('.js-data').toggleClass("hidden");
