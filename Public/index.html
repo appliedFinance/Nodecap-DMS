@@ -5,29 +5,30 @@
 		<title>yats system</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 		<link href="dms.css" rel="stylesheet" type="text/css" />
 		<link href="grid.css" rel="stylesheet" type="text/css" />
 
 	</head>
 	<body role="main">
-		<section name="TopBar">
-			<div class="top-info-bar">
-				<li><span class="user-name">USERNAME</span></li>
+
+		<div class="top-info-bar">
+			<li><span class="user-name">USERNAME</span></li>
+		</div>
+
+		<div class="row">
+
+			<div class="col-3 border">
+				<h1>Moonstone Books</h1>
+				<div class="js-main-menu"></div>
 			</div>
-		</section>
 
-			<div class="row">
-
-				<div class="col-3 border">
-					<h1>Pineapple</h1>
-					<div class="js-main-menu"></div>
-				</div>
-
-				<div class="col-9 border">
-					<div class="js-data"></div>
-				</div>
-
+			<div class="col-9 border">
+				<div class="js-data"></div>
+				<div class="js-employee hidden"></div>
 			</div>
+
+		</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="dms.js"></script>

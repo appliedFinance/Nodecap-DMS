@@ -5,11 +5,12 @@
 body {
 	background: #e6e9ec;
 	background-image:  
-	linear-gradient(rgba(255,255,255,.1),
-						 rgba(255,255,255,.1)),
+	linear-gradient(rgba(255,255,255,.01),
+						 rgba(255,255,255,.01)),
 	url("blue_gray_marble_seamless.jpg");
 	background-size: cover;
 	font-family: 'Roboto', 'New Times Roman', Serif;
+	margin-top: 25px;
 }
 
 .main {
@@ -26,7 +27,7 @@ body {
 
 .top-info-bar li {
 	float: left;
-	display: block;
+	display: inline-block;
 	font-size: 16pt;
 	list-style-type: none;
 	margin-bottom: 5px;
@@ -76,7 +77,14 @@ body {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 /* ------ Main Menu Drop Down ------ */
 
-.a-test {
+.emp-summary {
 	border: 1px solid black;
 	margin: auto;
 }
+
+.hidden {
+	/*visibility: hidden;*/
+	display: none;
+}
+
+
