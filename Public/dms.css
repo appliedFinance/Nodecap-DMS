@@ -38,6 +38,11 @@ body {
 .border-red {
 	border: 2px solid red;
 }
+
+.border-white {
+	border: 1px solid white;
+}
+
 .center { margin: auto; }
 
 /* ------ Main Menu Drop Down ------ */
@@ -83,6 +88,7 @@ body {
 	padding-left: 5px;
 }
 
+.a-dir:hover { background-color: grey; }
 .hidden {
 	display: none;
 }
@@ -91,4 +97,28 @@ body {
 	text-align: right;
 }
 
+/* ------ EMPLOYEE VIEW PORT ------ */
+.emp-container {
+	padding: 0.01em 16px;
+}
+
+
+.emp-blue {
+	color: #fff;
+	background-color: #2196F3
+}
+
+
+.emp-input {
+	padding: 8px;
+	display: inline-block;
+  	border: none;
+	border-bottom: 1px solid #ccc;
+	/* width: 100% */
+}
+/* ----------------------------- */
+
+.center {
+	margin: auto;
+}
 
