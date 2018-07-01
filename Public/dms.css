@@ -35,7 +35,7 @@ body {
 	color: white;
 }
 
-.border {
+.border-red {
 	border: 2px solid red;
 }
 .center { margin: auto; }
