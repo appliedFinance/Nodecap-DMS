@@ -42,7 +42,6 @@ function load_MockData() {
 		let type = "W2";
 		let startDate = "3/15/18";
 		let elt = renderAADirItem(name,type,startDate);
-		say(elt);
 		$('.js-data').append(elt);
 	}
 }
@@ -142,11 +141,21 @@ function renderEmpView(empdata) {
 	$('.js-employee').append(empdata);
 }
 
-
 function load_MainMenu() {
 	say("+ load_MainMenu");
 
+	$('.js-main-menu').html(`
+		<div class="dropdown">
+		<button class="dropbtn">Active Work</button>
+		<div class="dropdown-content">
+		<a href="#">Employees</a>
+		<a href="#">OnSite</a>
+		<a href="#">Invoices</a>
+		</div>
+		</div>
+		`);
 }
+
 
 function toggleViewPort() {
 	$('.js-data').toggleClass("hidden");
@@ -154,7 +163,6 @@ function toggleViewPort() {
 }
 
 function watcher() {
-	say("+ watcher");	
 	load_MainMenu();
 	load_MockData();
 

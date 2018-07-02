@@ -27,7 +27,7 @@ body {
 
 .top-info-bar li {
 	float: left;
-	display: inline-block;
+	display: block;
 	font-size: 16pt;
 	list-style-type: none;
 	margin-bottom: 5px;
@@ -35,15 +35,9 @@ body {
 	color: white;
 }
 
-.border {
-	border: 2px solid red;
-}
-
 .border-white {
 	border: 1px solid white;
 }
-
-.center { margin: auto; }
 
 /* ------ Main Menu Drop Down ------ */
 .dropbtn {
@@ -82,13 +76,20 @@ body {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 /* ------ Main Menu Drop Down ------ */
 
-.emp-summary {
+.a-dir {
 	border: 1px solid black;
 	margin: 5px 5px auto auto;
 	padding-left: 5px;
 }
 
 .a-dir:hover { background-color: grey; }
+
+.emp-summary {
+	border: 1px solid black;
+	margin: 5px 5px auto auto;
+	padding-left: 5px;
+}
+
 .hidden {
 	display: none;
 }
@@ -97,7 +98,7 @@ body {
 	text-align: right;
 }
 
-/* ------ EMPLOYEE VIEW PORT ------ */
+/* ------ EMPLOYEE VIEW PORT ------*/
 .emp-container {
 	padding: 0.01em 16px;
 }
