@@ -14,10 +14,9 @@ body {
 }
 
 .main {
-	border: 3px solid green;
 }
 
-.top-info-bar {
+.info-bar {
 	overflow: hidden;
 	background-color: #03037f; 
 	position: fixed;
@@ -25,7 +24,7 @@ body {
 	width: 100%;
 }
 
-.top-info-bar li {
+.info-bar li {
 	float: left;
 	display: block;
 	font-size: 16pt;
@@ -103,12 +102,10 @@ body {
 	padding: 0.01em 16px;
 }
 
-
 .emp-blue {
 	color: #fff;
 	background-color: #2196F3
 }
-
 
 .emp-input {
 	padding: 8px;

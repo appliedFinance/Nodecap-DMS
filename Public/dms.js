@@ -19,7 +19,7 @@ function load_MainMenu() {
 
 function renderAADirItem(name,type,startDate) {
 	let s = `
-		<div class="emp-summary">
+		<div class="a-dir">
 		<div class="row">
 		<div class="col-6">
 		<p>${name} -- ${type} -- ${startDate} thru _</p>
