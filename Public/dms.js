@@ -31,16 +31,21 @@ function toggleViewPort() {
 
 
 function watcher() {
+	say("+ watcher");
 	load_MainMenu();
 
-	$('.a-dir').on("click", function() {
+	// show the individual record view
+	$('.js-data').on("click", ".a-dir", function(event) {
+		displayEmpView($(this).attr("data-index"));
 		toggleViewPort();
-		displayEmpView();
 	});
+
+	// switch to a-dir veiw from individual record view
 	$('.js-employee').on("click", function() {
 		toggleViewPort();
 	});
-	
+
+	// get from the database all records
 	$('.js-main-menu').on("click", "a.one", function(event) {
 		updateEmployeeList();
 	});

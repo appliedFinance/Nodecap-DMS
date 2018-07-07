@@ -1,21 +1,24 @@
-const empData = [];
+const empData = [];  // global
 
 
-function load_MockData() {
-	$('.js-data').html("");
-	for(let i=0; i<10; i++) {
-		let name = "lastName, firstName";
-		let type = "W2";
-		let startDate = "3/15/18";
-		let elt = renderAADirItem(name,type,startDate);
-		$('.js-data').append(elt);
-	}
-}
 
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-function displayEmpView() {
+function displayEmpView(i) {
 	say("+ displayEmpView");
+	let  firstName = empData[i].name.firstName;
+	let middleName = empData[i].name.middleName;
+	let   lastName = empData[i].name.lastName;
+	let       type = empData[i].type;
+	let    c2cName = empData[i].companyName;
+	let      phone = empData[i].phone;
+	let      email = empData[i].email;
+	let        pay = empData[i].payRate;
+	let      OTpay = empData[i].OTPayRate;
+	let       bill = empData[i].billRate;
+	let     OTbill = empData[i].OTBillRate;
+
+	say("first name = " + firstName);
 	let s = `
 		<div class="emp-container emp-blue">
 		<h2 class="center">Contractor</h2>
@@ -26,17 +29,17 @@ function displayEmpView() {
 		<p>
 		<div class="col-4">
 		<label>First Name
-		<input class="emp-input" type="text" value="{ !!! }">
+		<input class="emp-input" type="text" value="${firstName}">
 		</label>
 		</div>
 		<div class="col-4">
 		<label>Middle
-		<input class="emp-input" type="text" value="{!!!}">
+		<input class="emp-input" type="text" value="${middleName}">
 		</label>
 		</div>
 		<div class="col-4">
 		<label>Last Name
-		<input class="emp-input" type="text" value="{ !!! }">
+		<input class="emp-input" type="text" value="${lastName}">
 		</label>
 		</div>
 		</p>
@@ -46,11 +49,11 @@ function displayEmpView() {
 		<p>	
 		<div class="col-6">
 		<label>Email</label>
-		<input class="emp-input" type="text" value="{ !!! }"></p>
+		<input class="emp-input" type="text" value="${email}"></p>
 		</div>
 		<div class="col-6">
 		<label>Phone</label>
-		<input class="emp-input" type="phone" value=" !!! }"></p>
+		<input class="emp-input" type="phone" value="${phone}"></p>
 		</div>
 		</p>
 		</div>
@@ -59,12 +62,12 @@ function displayEmpView() {
 		<p>
 		<div class="col-6">
 		<label>Type</label>
-		<input class="emp-input" type="text" value="{ !!! }">
+		<input class="emp-input" type="text" value="${type}">
 		</label>
 		</div>
 		<div class="col-6">
 		<label>C2C Name
-		<input class="emp-input" type="text" value="{ !!! }"></p>
+		<input class="emp-input" type="text" value="${c2cName}"></p>
 		</label>
 		</div>
 		</p>
@@ -74,12 +77,12 @@ function displayEmpView() {
 		<p>
 		<div class="col-6">
 		<label>Pay Rate</label>
-		<input class="emp-input" type="text" value="{ !!! }">
+		<input class="emp-input" type="text" value="${pay}">
 		</label>
 		</div>
 		<div class="col-6">
 		<label>OT Pay Rate
-		<input class="emp-input" type="text" value="{ !!! }"></p>
+		<input class="emp-input" type="text" value="${OTpay}"></p>
 		</label>
 		</div>
 		</p>
@@ -89,12 +92,12 @@ function displayEmpView() {
 		<p>
 		<div class="col-6">
 		<label>Bill Rate</label>
-		<input class="emp-input" type="text" value="{ !!! }">
+		<input class="emp-input" type="text" value="${bill}">
 		</label>
 		</div>
 		<div class="col-6">
 		<label>OT Bill Rate 
-		<input class="emp-input" type="text" value="{ !!! }"></p>
+		<input class="emp-input" type="text" value="${OTbill}"></p>
 		</label>
 		</div>
 		</p>
@@ -110,14 +113,13 @@ function renderEmpView(empdata) {
 
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-function makeAADirItem(emp) {
+function makeAADirItem(emp,index) {
 	let fn = emp.name.firstName;
 	let ln = emp.name.lastName;
 	let type = emp.type;
 	let startDate = emp.startDate;
-
 	let s = `
-		<div class="a-dir">
+		<div class="a-dir" data-index="${index}">
 		<div class="row">
 		<div class="col-6">
 		<p>${ln}, ${fn} -- ${type} -- ${startDate} thru _</p>
@@ -139,7 +141,7 @@ function renderAADirItem(elt) {
 
 function createAADir() {
 	for(let i=0; i<empData.length; i++) {
-		let elt = makeAADirItem(empData[i]);
+		let elt = makeAADirItem(empData[i],i);
 		renderAADirItem(elt);
 	}
 }
