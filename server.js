@@ -18,9 +18,13 @@ app.use(express.json());
 app.use(express.static("Public"));
 //app.get('/', (req,res)=> res.sendFile(__dirname + "/Public/index.html"));
 
+//const {EmployeeRouter} = require('./Router/EmployeeRouter');
+const {router: EmployeeRouter} = require('./Router/EmployeeRouter');
+
+app.use('/api/employees', EmployeeRouter);
 
 app.use('*', function (req, res) {
-  res.status(404).json({ message: 'Not Found' });
+  res.status(404).json({ message: '?' });
 });
 
 // closeServer needs access to a server object, but that only

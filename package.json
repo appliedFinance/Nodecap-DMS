@@ -14,10 +14,11 @@
     "type": "git",
     "url": "Nodecap-DSS"
   },
-  "author": "Rande Shern",
+  "author": "Johnny Rotten",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
+    "faker": "^4.1.0",
     "mongoose": "^5.0.6"
   },
   "devDependencies": {
