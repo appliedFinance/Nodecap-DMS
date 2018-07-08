@@ -31,6 +31,7 @@ const employeeSchema = mongoose.Schema({
 	length: String  // estimated lenght of assignment at hire
 });
 
+/*
 employeeSchema.virtual('fullName').get( function() {
 	return `${this.name.firstName} ${this.name.middleName} ${this.name.lastName}`;
 }
@@ -63,7 +64,7 @@ employeeSchema.methods.serialize = function() {
 		length: this.length
 	};
 }
-
+*/
 
 const Employee = mongoose.model('Employee', employeeSchema);
 
