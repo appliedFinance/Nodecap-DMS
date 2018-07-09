@@ -31,37 +31,49 @@ router.get('/:id', function(req, res) {
 
 // POST - one Employee at a time   /api/employees
 router.post('/', function(req, res) {
+	say("+++++++++++++++++++++++++");
 	say(req.body);
+	say("=========================");
 	Employee.create({
-			name: {firstName: 	req.body.firstName,
-					 middleName:	req.body.middleName,
-					 lastName: 		req.body.lastName
+			name:	{
+			  firstName: 	req.body.name.firstName,
+			 middleName:	req.body.name.middleName,
+				lastName: 	req.body.name.lastName,
 			},
-			type: req.body.type, 
-			companyName: req.body.companyName,
-			address: {street1: 	req.body.street1,
-						 street2: 	req.body.street2,
-						 city: 		req.body.city,
-						 state: 		req.body.state,
-						 zipcode: 	req.body.zipcode
+
+					 type: 	req.body.type, 
+			companyName: 	req.body.companyName,
+
+			address: {
+				 street1: 	req.body.address.street1,
+				 street2: 	req.body.address.street2,
+				    city:	req.body.address.city,
+				   state:	req.body.address.state,
+				 zipcode: 	req.body.address.zipcode
 			},
-			phone: 		req.body.phone,
-			email: 		req.body.email,
-			otherInfo: 	req.body.otherInfo,
-			jobTitle: 	req.body.jobTitle,
-			payRate: 	req.body.payRate,
-			OTPayRate: 	req.body.OTPayRate,
-			billRate: 	req.body.billRate,
-			OTBillRate: req.body.OTBillRate,
-			paidHolidays: req.body.paidHolidays,
-			startDate: 	req.body.startDate,
-			endDate: 	req.body.endDate,
-			length: 		req.body.length  
-		})
-	.then( post=> req.status(200).json(post) )
-		.catch( err=> {
-			res.status(500).json({"error":"Post Failed."});
-		});
+
+			   	phone:	req.body.phone,
+					email: 	req.body.email,
+			  otherInfo: 	req.body.otherInfo,
+				jobTitle: 	req.body.jobTitle,
+				 payRate: 	req.body.payRate,
+			  OTPayRate: 	req.body.OTPayRate,
+				billRate: 	req.body.billRate,
+			 OTBillRate: 	req.body.OTBillRate,
+		  paidHolidays: 	req.body.paidHolidays,
+			  startDate: 	req.body.startDate,
+				 endDate: 	req.body.endDate,
+				  length: 	req.body.length  
+    })
+	.then( post=> { 
+		say(post);
+		res.status(200).json(post);
+	})
+	.catch( err=> { 
+		say(err); 
+		res.status(500).json({"error":"Post Failed."}); 
+	});
+
 });
 
 

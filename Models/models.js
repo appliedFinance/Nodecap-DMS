@@ -26,8 +26,8 @@ const employeeSchema = mongoose.Schema({
 	billRate: Number,
 	OTBillRate: Number,
 	paidHolidays: String,
-	startDate: Date,
-	endDate: Date,
+	startDate: String,
+	endDate: String,
 	length: String  // estimated lenght of assignment at hire
 });
 
