@@ -2,6 +2,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 mongoose.Promise = global.Promise;
 
@@ -9,6 +10,7 @@ const { PORT, DATABASE_URL } = require('./config');
 
 const app = express();
 app.use(express.json());
+app.use(morgan('dev'));
 
 app.use(express.static("Public"));
 //app.get('/', (req,res)=> res.sendFile(__dirname + "/Public/index.html"));

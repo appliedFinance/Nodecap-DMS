@@ -10,17 +10,17 @@ function load_MainMenu() {
 
 	$('.js-main-menu').html("");
 	$('.js-main-menu').html(
-		`
-		<div class="dropdown">
-		<button class="dropbtn">Active Work</button>
-		<div class="dropdown-content">
-		<a href="#" class="one db">List Employees</a>
-		<a href="#" class="two rtp">1. Margin Report</a>
-		<a href="#" class="three rpt">2. Starts Report</a>
-		<a href="#" class="four rpt">3. OnSite Report</a>
-		</div>
-		</div>
-		`);
+			`
+			<div class="dropdown">
+			<button class="dropbtn">Active Work</button>
+			<div class="dropdown-content">
+			<a href="#" class="one db">List Employees</a>
+			<a href="#" class="two rtp">1. Margin Report</a>
+			<a href="#" class="three rpt">2. Starts Report</a>
+			<a href="#" class="four rpt">3. OnSite Report</a>
+			</div>
+			</div>
+			`);
 }
 
 function toggleViewPort() {
@@ -28,11 +28,20 @@ function toggleViewPort() {
 	$('.js-employee').toggleClass("hidden");
 }
 
+function load_DataControls() {
+	$('.js-data-controls').html(`
+	  <form name="data-controls">
+		<input type="submit" value="Search" class="control-button">
+		<input type="submit" value="New Hire" class="control-button">
+	  </form>
+	`);
+}//load_DataControls
 
 
 function watcher() {
 	say("+ watcher");
 	load_MainMenu();
+	load_DataControls();
 
 	// show the individual record view
 	$('.js-data').on("click", ".a-dir", function(event) {
@@ -47,9 +56,9 @@ function watcher() {
 
 	// get from the database all records
 	$('.js-main-menu').on("click", "a.one", function(event) {
+		$('.js-data-controls').removeClass("hidden");
 		updateEmployeeList();
 	});
-
 
 };////////
 $(watcher);

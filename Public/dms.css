@@ -14,7 +14,9 @@ body {
 }
 
 .main {
+	margin-top: 5px;
 }
+
 
 .info-bar {
 	overflow: hidden;
@@ -30,9 +32,15 @@ body {
 	font-size: 16pt;
 	list-style-type: none;
 	margin-bottom: 5px;
-	padding: 0px 7px 0px 7px; 
+	padding: 5px 5px 5px 5px; 
 	color: white;
 }
+
+.js-data-controls {
+	margin-bottom: 30px;
+	text-align: right;
+}
+
 
 .border-white {
 	border: 1px solid white;
@@ -42,6 +50,12 @@ body {
 	font-family: "Times New Roman";
 }
 
+.control-button {
+	padding: 10px;
+	margin-right: 15px;
+	margin-top: 10px;
+	width: 90px;
+}
 
 /* ------ Main Menu Drop Down ------ */
 .dropbtn {

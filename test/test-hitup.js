@@ -9,7 +9,7 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe('Users', function() {
+describe('Is Server Running', function() {
 	
 	// BEFORE
 	before(function() {
