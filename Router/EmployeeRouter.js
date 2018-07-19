@@ -31,11 +31,13 @@ router.get('/:id', function(req, res) {
 
 // POST - one Employee at a time   /api/employees
 router.post('/', function(req, res) {
+	say("hi");
+	say(req.body);
 	Employee.create({
 			name:	{
 			  firstName: 	req.body.name.firstName,
 			 middleName:	req.body.name.middleName,
-				lastName: 	req.body.name.lastName,
+				lastName: 	req.body.name.lastName
 			},
 
 					 type: 	req.body.type, 
@@ -63,7 +65,7 @@ router.post('/', function(req, res) {
 				  length: 	req.body.length  
     })
 	.then( post=> { 
-		//say(post);
+		say(post);
 		res.status(200).json(post);
 	})
 	.catch( err=> { 
