@@ -5,7 +5,7 @@ const empData = [];  // global
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 function displayEmpView(i) {
-	say("+ displayEmpView");
+	say("+ displayEmpView( " + i + " )");
 	let  firstName = empData[i].name.firstName;
 	let middleName = empData[i].name.middleName;
 	let   lastName = empData[i].name.lastName;
@@ -122,12 +122,12 @@ function makeAADirItem(emp,index) {
 		<div class="a-dir" data-index="${index}">
 		<div class="row">
 		<div class="col-6">
-		<p>${ln}, ${fn} -- ${type} -- ${startDate} thru _</p>
+		<p class="can-click">${ln}, ${fn} -- ${type} -- ${startDate} thru _</p>
 		</div>
 		<div class="col-6 dir-button">
 		<button>OnSite</button>
 		<button>Edit</button>
-		<button>Print</button>
+		<button id="aa-delete">Delete</button>
 		</div>
 		</div>
 		</div>
@@ -145,6 +145,14 @@ function createAADir() {
 		renderAADirItem(elt);
 	}
 }
+
+function deleteOneAADir(n) {
+	if (n !== -1) {
+		empData.splice(n,1);
+	}
+	createAADir();
+}
+	
 
 function refreshEmployeeData() {
 	//

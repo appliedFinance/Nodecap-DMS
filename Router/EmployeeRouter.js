@@ -91,7 +91,15 @@ router.put('/:id', function(req, res) {
 
 // DELETE - delete one Employee 	/api/employees/:id
 router.delete('/:id', function(req, res) {
-
+	Employee
+		.findByIdAndRemove(req.params.id)
+		.then( ()=> { res.status(204).json({"message": "success"});
+		})
+	.catch( err=> {
+		const message = `... Missed -> ${req.params.id}`;
+		console.error(err);
+		res.status(500).json({"error": "something went terribly wrong"});
+	});
 });
 
 

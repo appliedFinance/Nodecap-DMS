@@ -41,11 +41,11 @@ function watcher() {
 	say("+ watcher");
 	load_MainMenu();
 	load_DataControls();
-	
+
 
 	// show the individual record view
-	$('.js-data').on("click", ".a-dir", function(event) {
-		displayEmpView($(this).attr("data-index"));
+	$('.js-data').on("click", ".can-click", function(event) {
+		displayEmpView($(this).closest(".a-dir").attr("data-index"));
 		toggleDataViewPort();
 	});
 
@@ -63,13 +63,13 @@ function watcher() {
 	//////////////////////////////////////////////////////////
 	// Handle 'control-button' clicks
 	let buttonPressed = "0";
-	
+
 	// Get the name of button clicked
 	$('.js-input-form').on("click", ".in-form-button", function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		buttonPressed = $(this).attr("name");
-		
+
 		if (buttonPressed == "in-cancel") {
 			say("You pressed:  " + buttonPressed);
 			let msg;
@@ -87,6 +87,30 @@ function watcher() {
 		buttonPressed="";
 		toggleInputFormViewPort();
 	});
+
+
+	//////////////////////////////////////////////////////////
+	// Handle DELETING a document
+
+	$('.js-data').on("click", "#aa-delete", function(event) {
+		const $aa = $(this);
+		let n = $aa.closest(".a-dir").attr("data-index");
+		let URL = "/api/employees/" + empData[n]._id;
+
+		$.ajax({
+			'type': "DELETE",
+			'url': URL, 
+			'data': '', 
+			'dataType': "json",
+			'contentType': "application/json",
+			'success': function(r) {
+				say("DELETE SUCCESSFUL");
+				deleteOneAADir(n);
+			}
+		});
+		updateEmployeeList();
+	});
+
 
 };////////
 $(watcher);

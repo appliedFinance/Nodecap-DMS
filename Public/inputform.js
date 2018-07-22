@@ -54,6 +54,7 @@ function postForm() {
 		'contentType': "application/json",
 		'success': function(r) {
 			say("POST SUCCESSFUL");
+			refreshEmployeeData();
 		}
 	});
 	
