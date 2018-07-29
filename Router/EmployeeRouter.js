@@ -31,7 +31,6 @@ router.get('/:id', function(req, res) {
 
 // POST - one Employee at a time   /api/employees
 router.post('/', function(req, res) {
-	say("hi");
 	say(req.body);
 	Employee.create({
 			name:	{
@@ -82,9 +81,10 @@ router.put('/:id', function(req, res) {
 	if( !(req.params.id && req.body.id && (req.params.id === req.body.id)) ) {
 		res.status(400).json({ error: "id's do not match or missing." });
 	}
-	// construct the Update object
-	const toUpdate = {};
-	const updateableFields = [];
+
+	say("PUT PUT PUT");
+
+
 });
 
 

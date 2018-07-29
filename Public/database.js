@@ -150,6 +150,7 @@ function deleteOneAADir(n) {
 	if (n !== -1) {
 		empData.splice(n,1);
 	}
+	$('.js-data').html("");
 	createAADir();
 }
 	

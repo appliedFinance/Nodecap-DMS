@@ -31,6 +31,8 @@ function toggleDataViewPort() {
 
 function load_DataControls() {
 	$('.js-data-controls').html(`
+			<button onclick="genTwo()" class="control-button">Gen2</button>
+			<button onclick="refreshEmployeeData()" class="control-button">Refresh</button>
 			<button onclick="searchAADir()"       class="control-button">Search</button>
 			<button onclick="createNewHireForm()" class="control-button">New Hire</button>
 			`);
@@ -108,9 +110,17 @@ function watcher() {
 				deleteOneAADir(n);
 			}
 		});
-		updateEmployeeList();
 	});
 
+
+	//////////////////////////////////////////////////////////
+	// Handle UPDATE/PUT of a document
+
+	$('.js-data').on("click", "#aa-delete", function(event) {
+		const $aa = $(this);
+
+
+		});
 
 };////////
 $(watcher);
