@@ -1,13 +1,13 @@
 // Client side 
 'use strict'
 const say = console.log;
-
+const COMPANY_NAME = "Fulcrum Ops";
 
 function load_MainMenu() {
 	say("+ load_MainMenu");
+	
 
-	$('.companyName').html("Moonstone Academy");
-	say("Moostone");
+	$('.companyNAME').html(COMPANY_NAME);
 
 	$('.js-main-menu').html("");
 	$('.js-main-menu').html(
@@ -24,10 +24,6 @@ function load_MainMenu() {
 			`);
 }
 
-function toggleDataViewPort() {
-	$('.js-data').toggleClass("hidden");
-	$('.js-employee').toggleClass("hidden");
-}
 
 function load_DataControls() {
 	$('.js-data-controls').html(`
@@ -135,5 +131,13 @@ function toggleInputFormViewPort() {
 	$('.js-data').toggleClass("hidden");
 	$('.js-input-form').toggleClass("hidden");
 }
+
+
+function toggleDataViewPort() {
+	$('.js-data-controls').toggleClass("hidden");
+	$('.js-data').toggleClass("hidden");
+	$('.js-employee').toggleClass("hidden");
+}
+
 
 

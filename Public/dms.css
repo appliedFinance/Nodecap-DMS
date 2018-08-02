@@ -144,6 +144,10 @@ a.rpt {
 	border-bottom: 1px solid #ccc;
 	 width: 100%; 
 }
+
+.in-form-button {
+	margin-bottom: 15px;
+}
 /* ----------------------------- */
 
 .center {

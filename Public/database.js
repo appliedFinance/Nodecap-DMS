@@ -5,6 +5,10 @@ const empData = [];  // global
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 function displayEmpView(i) {
+	displayEmployeeData(i);
+}
+
+function ZdisplayEmpView(i) {
 	say("+ displayEmpView( " + i + " )");
 	let  firstName = empData[i].name.firstName;
 	let middleName = empData[i].name.middleName;
@@ -18,7 +22,7 @@ function displayEmpView(i) {
 	let       bill = empData[i].billRate;
 	let     OTbill = empData[i].OTBillRate;
 
-	say("first name = " + firstName);
+	//say("first name = " + firstName);
 	let s = `
 		<div class="emp-container emp-blue">
 		<h2 class="center">Contractor</h2>
@@ -165,9 +169,10 @@ function refreshEmployeeData() {
 		//"https://secret-beyond-76532.herokuapp.com/api/employees",
 		"/api/employees",
 		success: function(list) {
+			say("GET SUCCESSFUL");
 			for(let i=0; i<list.length; i++)
 			{
-				say(list[i]);
+				//say(list[i]);
 				empData[i]= list[i];
 			}
 			empData.sort((a,b) => sortByLastName(a,b));

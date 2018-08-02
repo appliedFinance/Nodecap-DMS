@@ -14,6 +14,7 @@ function genTwo() {
 			'contentType': "application/json",
 			'success': function(r) {
 				say(" ... generated random employee data");
+				say("POST SUCCESSFUL");
 				refreshEmployeeData();
 			}
 		});
