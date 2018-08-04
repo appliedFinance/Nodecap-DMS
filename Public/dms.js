@@ -5,7 +5,7 @@ const COMPANY_NAME = "Fulcrum Ops";
 
 function load_MainMenu() {
 	say("+ load_MainMenu");
-	
+
 
 	$('.companyNAME').html(COMPANY_NAME);
 
@@ -27,12 +27,44 @@ function load_MainMenu() {
 
 function load_DataControls() {
 	$('.js-data-controls').html(`
-			<button onclick="genTwo()" class="control-button">Gen2</button>
+			<button onclick="genTwo()"              class="control-button">Gen2</button>
 			<button onclick="refreshEmployeeData()" class="control-button">Refresh</button>
-			<button onclick="searchAADir()"       class="control-button">Search</button>
-			<button onclick="createNewHireForm()" class="control-button">New Hire</button>
+			<button onclick="searchAADir()"         class="control-button">Search</button>
+			<button onclick="createNewHireForm()"   class="control-button">New Hire</button>
 			`);
 }//load_DataControls
+
+let thing = 0;
+function searchAADir() {
+	say("Searching ...");
+	thing = thing + 1;
+	if (thing % 2 === 0) { toggleInputFormViewPort(); } else { toggleResetView(); }
+}
+
+
+function toggleInputFormViewPort() {
+	$('.js-data-controls').addClass("hidden");
+	$('.js-data').addClass("hidden");
+	$('.js-employee').addClass("hidden");
+	$('.js-input-form').removeClass("hidden");
+}
+
+
+function toggleDataViewPort() {
+	$('.js-data-controls').addClass("hidden");
+	$('.js-data').addClass("hidden");
+	$('.js-employee').removeClass("hidden");
+	$('.js-input-form').addClass("hidden");
+}
+
+function toggleResetView() {
+	$('.js-data-controls').removeClass("hidden");
+	$('.js-data').removeClass("hidden");
+	$('.js-employee').addClass("hidden");
+	$('.js-input-form').addClass("hidden");
+	$('.js-employee').html("");
+	$('.js-input-form').html("");
+}
 
 
 function watcher() {
@@ -54,36 +86,46 @@ function watcher() {
 
 	// get from the database all records
 	$('.js-main-menu').on("click", "a.one", function(event) {
-		$('.js-data-controls').removeClass("hidden");
+		toggleResetView();
 		updateEmployeeList();
 	});
 
 	//////////////////////////////////////////////////////////
 	// Handle 'control-button' clicks
 	let buttonPressed = "0";
+	//		buttonPressed = $(this).attr("name");
 
-	// Get the name of button clicked
-	$('.js-input-form').on("click", ".in-form-button", function(event) {
+	// SAVE BUTTON
+	$('.js-input-form').on("click", "input[name='in-save']", function(event) {
 		event.stopPropagation();
 		event.preventDefault();
-		buttonPressed = $(this).attr("name");
-
-		if (buttonPressed == "in-cancel") {
-			say("You pressed:  " + buttonPressed);
-			let msg;
-			if (confirm("Save Changes?")) {
-				buttonPressed= "in-save";	
-			} else {
-				// do nothing	
-			}
-		}
-		if (buttonPressed == "in-save") {
-			say("You pressed:  " + buttonPressed);
+		let val = $(this).closest("form").attr("data-num");
+		if (val<0) {
 			postForm();
-			//toggleSpinner();
+		} else {
+			say(val);
+			putForm(empData[val]._id);
 		}
-		buttonPressed="";
+		//toggleSpinner();
+		toggleResetView();
+	});
+
+	// CANCEL BUTTON
+	$('.js-input-form').on("click", "input[name='in-cancel']", function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		toggleResetView();
+	});
+
+	// EDIT BUTTON
+	$('.js-employee').on("click", "input[name='in-edit']", function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		let val = $(this).closest("form").attr("data-num");
+		say("Edit Button, index = " + val);
+		$('.js-employee').html("");
 		toggleInputFormViewPort();
+		editEmployeeData(val);
 	});
 
 
@@ -116,28 +158,11 @@ function watcher() {
 		const $aa = $(this);
 
 
-		});
+	});
 
 };////////
 $(watcher);
 
-function searchAADir() {
-	say("Searching ...");
-}
-
-
-function toggleInputFormViewPort() {
-	$('.js-data-controls').toggleClass("hidden");
-	$('.js-data').toggleClass("hidden");
-	$('.js-input-form').toggleClass("hidden");
-}
-
-
-function toggleDataViewPort() {
-	$('.js-data-controls').toggleClass("hidden");
-	$('.js-data').toggleClass("hidden");
-	$('.js-employee').toggleClass("hidden");
-}
 
 
 

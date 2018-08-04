@@ -8,7 +8,104 @@ function displayEmpView(i) {
 	displayEmployeeData(i);
 }
 
-function ZdisplayEmpView(i) {
+
+function renderEmpView(empdata) {
+	$('.js-employee').html("");
+	$('.js-employee').append(empdata);
+}
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+function makeAADirItem(emp,index) {
+	let fn = emp.name.firstName;
+	let ln = emp.name.lastName;
+	let type = emp.type;
+	let startDate = emp.startDate;
+	let s = `
+		<div class="a-dir" data-index="${index}">
+		<div class="row">
+		<div class="col-6">
+		<p class="can-click">${ln}, ${fn} -- ${type} -- ${startDate} thru _</p>
+		</div>
+		<div class="col-6 dir-button">
+		<button>OnSite</button>
+		<button>Edit</button>
+		<button id="aa-delete">Delete</button>
+		</div>
+		</div>
+		</div>
+		`;
+	return s;
+}
+
+function renderAADirItem(elt) {
+	$('.js-data').append(elt);
+}
+
+function createAADir() {
+	for(let i=0; i<empData.length; i++) {
+		let elt = makeAADirItem(empData[i],i);
+		renderAADirItem(elt);
+	}
+}
+
+function deleteOneAADir(n) {
+	if (n !== -1) {
+		empData.splice(n,1);
+	}
+	$('.js-data').html("");
+	createAADir();
+}
+	
+
+function refreshEmployeeData() {
+	//
+	// Talk To DataBase Here
+	//
+
+	let n = 0;
+	$.ajax({ url:
+		//"https://secret-beyond-76532.herokuapp.com/api/employees",
+		"/api/employees",
+		success: function(list) {
+			say("GET SUCCESSFUL");
+			for(let i=0; i<list.length; i++)
+			{
+				//say(list[i]);
+				empData[i]= list[i];
+			}
+			empData.sort((a,b) => sortByLastName(a,b));
+			$('.js-data').html("");
+			createAADir();
+		}
+	});
+
+	/*
+		for(let i=0; i<FakeEmployeeData.length; i++)
+		{
+		empData[i]= FakeEmployeeData[i];
+		}
+		*/
+	// sort the employees by their last name
+}
+
+
+function updateEmployeeList() {
+	say("+ updateEmployeeList");
+	refreshEmployeeData();
+}
+
+function sortByLastName(a,b) {
+	let key_a = a.name.lastName.toLowerCase();
+	let key_b = b.name.lastName.toLowerCase();
+	if (key_a < key_b) return -1;
+	if (key_a > key_b) return 1;
+	return 0;
+}
+
+
+
+/*function ZdisplayEmpView(i) {
 	say("+ displayEmpView( " + i + " )");
 	let  firstName = empData[i].name.firstName;
 	let middleName = empData[i].name.middleName;
@@ -109,98 +206,4 @@ function ZdisplayEmpView(i) {
 		`;
 	renderEmpView(s);
 }
-
-function renderEmpView(empdata) {
-	$('.js-employee').html("");
-	$('.js-employee').append(empdata);
-}
-
-//////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
-function makeAADirItem(emp,index) {
-	let fn = emp.name.firstName;
-	let ln = emp.name.lastName;
-	let type = emp.type;
-	let startDate = emp.startDate;
-	let s = `
-		<div class="a-dir" data-index="${index}">
-		<div class="row">
-		<div class="col-6">
-		<p class="can-click">${ln}, ${fn} -- ${type} -- ${startDate} thru _</p>
-		</div>
-		<div class="col-6 dir-button">
-		<button>OnSite</button>
-		<button>Edit</button>
-		<button id="aa-delete">Delete</button>
-		</div>
-		</div>
-		</div>
-		`;
-	return s;
-}
-
-function renderAADirItem(elt) {
-	$('.js-data').append(elt);
-}
-
-function createAADir() {
-	for(let i=0; i<empData.length; i++) {
-		let elt = makeAADirItem(empData[i],i);
-		renderAADirItem(elt);
-	}
-}
-
-function deleteOneAADir(n) {
-	if (n !== -1) {
-		empData.splice(n,1);
-	}
-	$('.js-data').html("");
-	createAADir();
-}
-	
-
-function refreshEmployeeData() {
-	//
-	// Talk To DataBase Here
-	//
-
-	let n = 0;
-	$.ajax({ url:
-		//"https://secret-beyond-76532.herokuapp.com/api/employees",
-		"/api/employees",
-		success: function(list) {
-			say("GET SUCCESSFUL");
-			for(let i=0; i<list.length; i++)
-			{
-				//say(list[i]);
-				empData[i]= list[i];
-			}
-			empData.sort((a,b) => sortByLastName(a,b));
-			$('.js-data').html("");
-			createAADir();
-		}
-	});
-
-	/*
-		for(let i=0; i<FakeEmployeeData.length; i++)
-		{
-		empData[i]= FakeEmployeeData[i];
-		}
-		*/
-	// sort the employees by their last name
-}
-
-
-function updateEmployeeList() {
-	say("+ updateEmployeeList");
-	refreshEmployeeData();
-}
-
-function sortByLastName(a,b) {
-	let key_a = a.name.lastName.toLowerCase();
-	let key_b = b.name.lastName.toLowerCase();
-	if (key_a < key_b) return -1;
-	if (key_a > key_b) return 1;
-	return 0;
-}
-
+*/

@@ -126,6 +126,15 @@ a.rpt {
 .dir-button {
 	text-align: right;
 }
+/* ------ New Hire Form -----------*/
+/*input[type=text] {
+	background-color: #ffffcc;
+}
+*/
+.in-edit {
+	background-color: #ffffcc;
+}
+/* ----------------------------- */
 
 /* ------ EMPLOYEE VIEW PORT ------*/
 .emp-container {
@@ -147,6 +156,10 @@ a.rpt {
 
 .in-form-button {
 	margin-bottom: 15px;
+}
+
+.in-display {
+	background-color: #f0f5f5;
 }
 /* ----------------------------- */
 
