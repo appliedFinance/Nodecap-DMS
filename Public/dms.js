@@ -110,10 +110,12 @@ function watcher() {
 		toggleResetView();
 	});
 
-	// CANCEL BUTTON
+	// CANCEL BUTTON or RETURN BUTTON
 	$('.js-input-form').on("click", "input[name='in-cancel']", function(event) {
 		event.stopPropagation();
 		event.preventDefault();
+		say("LOOK AT ME");
+		updateEmployeeList();
 		toggleResetView();
 	});
 
@@ -128,7 +130,7 @@ function watcher() {
 		editEmployeeData(val);
 	});
 
-
+	
 	//////////////////////////////////////////////////////////
 	// Handle DELETING a document
 
@@ -154,11 +156,6 @@ function watcher() {
 	//////////////////////////////////////////////////////////
 	// Handle UPDATE/PUT of a document
 
-	$('.js-data').on("click", "#aa-delete", function(event) {
-		const $aa = $(this);
-
-
-	});
 
 };////////
 $(watcher);

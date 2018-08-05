@@ -78,13 +78,16 @@ router.post('/', function(req, res) {
 // PUT - update one Employee	/api/employees/:id  
 router.put('/:id', function(req, res) {
 	// check the id
-	if( !(req.params.id && req.body.id && (req.params.id === req.body.id)) ) {
-		res.status(400).json({ error: "id's do not match or missing." });
-	}
-
-	say("PUT PUT PUT");
-
-
+	//if( !(req.params.id && req.body._id && (req.params.id === req.body._id)) ) {
+//		res.status(400).json({ error: "id's do not match or missing." });
+//	}
+	say(" id = " + req.params.id);
+	say("_id = " + req.body._id);
+	say( Object.keys(req.body));
+	Employee
+		.findByIdAndUpdate( req.params.id, { $set: req.body }, { new: true } )
+		.then( updatedPost=> res.status(204).end() )
+		.catch( err=> 	res.status(500).json({message: "Could not Update"}));
 });
 
 

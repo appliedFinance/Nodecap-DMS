@@ -21,7 +21,7 @@ const {router: EmployeeRouter} = require('./Router/EmployeeRouter');
 app.use('/api/employees', EmployeeRouter);
 
 app.use('*', function (req, res) {
-  res.status(404).json({ message: '?' });
+  res.status(404).json({ message: "I don't know what that means?" });
 });
 
 // closeServer needs access to a server object, but that only

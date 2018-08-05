@@ -100,10 +100,13 @@ function putForm(id) {
 		'url': URL,
 		'data': JSON.stringify(employeeData),
 		'dataType': "json",
-		'contentType': "application/json",
+		'contentType': "application/json; charset=UTF-8",
 		'success': function(r) {
 			say("PUT SUCCESSFUL");
 			refreshEmployeeData();
+			},
+		'error': function(xhr,stat,err) {
+			say(xhr);
 		}
 	});
 	//say(employeeData);
@@ -249,7 +252,7 @@ function buildEmployeeDataForm(employee, n,  editable, withData, method) {
 			`;
 	} else {
 		s += `
-			<input type="submit" class="in-form-button" name="in-cancel" value="Return"> 
+			<input type="submit" class="in-form-button" name="in-cancel" value="Return to List"> 
 			<input type="submit" class="in-form-button" name="in-edit" value="Edit"> 
 			`;
 	}////

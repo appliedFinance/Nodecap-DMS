@@ -28,8 +28,7 @@ function makeAADirItem(emp,index) {
 		<p class="can-click">${ln}, ${fn} -- ${type} -- ${startDate} thru _</p>
 		</div>
 		<div class="col-6 dir-button">
-		<button>OnSite</button>
-		<button>Edit</button>
+		<button>Email</button>
 		<button id="aa-delete">Delete</button>
 		</div>
 		</div>
@@ -71,8 +70,11 @@ function refreshEmployeeData() {
 			say("GET SUCCESSFUL");
 			for(let i=0; i<list.length; i++)
 			{
-				//say(list[i]);
+				//say(list);
 				empData[i]= list[i];
+				empData[i].id = list[i]._id;	
+				//say(empData[i].id);
+				//say(empData[i]._id);
 			}
 			empData.sort((a,b) => sortByLastName(a,b));
 			$('.js-data').html("");

@@ -17,6 +17,7 @@ const employeeSchema = mongoose.Schema({
 		state: String,
 		zipcode: String
 	},
+	id: String,
 	phone: String,
 	email: String,
 	otherInfo: String,
