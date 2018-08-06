@@ -134,6 +134,9 @@ a.rpt {
 .in-edit {
 	background-color: #ffffcc;
 }
+.in-Middle_Name {
+	width: 90px;
+}
 /* ----------------------------- */
 
 /* ------ EMPLOYEE VIEW PORT ------*/

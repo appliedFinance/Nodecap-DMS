@@ -38,8 +38,32 @@ describe('Employee API', function() {
 				});
 		});
 
+	});//POST
 
-	});
+	describe('PUT Route', function() {
+		it('Should update items on PUT', function() {
+			const emp = generateRandomEmployee();
+			return chai.request(app)
+				.get('/api/employees')
+				.set("contentType", "application/json")
+				.then( function(res) {
+					emp._id = res.body[0]._id;
+
+					return chai.request(app)
+						.put(`/api/employees/${emp._id}`)
+						.set("contentType", "application/json")
+						.send(emp);
+				})
+			// prove PUT has right status code
+			.then( function(res) {
+				expect(res).to.have.status(200);
+				//expect(res).to.be.json;
+				expect(res.body).to.be.a('object');
+				//expect(res.body).to.deep.equal(emp);
+			});
+
+		});//it
+	});//PUT
 
 });
 

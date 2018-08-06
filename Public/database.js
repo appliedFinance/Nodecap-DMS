@@ -73,6 +73,9 @@ function refreshEmployeeData() {
 				//say(list);
 				empData[i]= list[i];
 				empData[i].id = list[i]._id;	
+				say("*****************************");
+				say(empData[i]);
+				say("*****************************");
 				//say(empData[i].id);
 				//say(empData[i]._id);
 			}

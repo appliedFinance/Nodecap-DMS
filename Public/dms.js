@@ -96,10 +96,11 @@ function watcher() {
 	//		buttonPressed = $(this).attr("name");
 
 	// SAVE BUTTON
-	$('.js-input-form').on("click", "input[name='in-save']", function(event) {
+	//$('.js-input-form').on("click", "input[name='in-save']", function(event) {
+	$('.js-input-form').on("submit", "form", function(event) {
 		event.stopPropagation();
 		event.preventDefault();
-		let val = $(this).closest("form").attr("data-num");
+		let val = $(this).attr("data-num");
 		if (val<0) {
 			postForm();
 		} else {
@@ -111,7 +112,7 @@ function watcher() {
 	});
 
 	// CANCEL BUTTON or RETURN BUTTON
-	$('.js-input-form').on("click", "input[name='in-cancel']", function(event) {
+	$('.js-input-form, .js-employee').on("click", "button[name='in-cancel']", function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		say("LOOK AT ME");

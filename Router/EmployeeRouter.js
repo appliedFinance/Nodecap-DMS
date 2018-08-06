@@ -31,7 +31,7 @@ router.get('/:id', function(req, res) {
 
 // POST - one Employee at a time   /api/employees
 router.post('/', function(req, res) {
-	say(req.body);
+	//say(req.body);
 	Employee.create({
 			name:	{
 			  firstName: 	req.body.name.firstName,
@@ -64,7 +64,7 @@ router.post('/', function(req, res) {
 				  length: 	req.body.length  
     })
 	.then( post=> { 
-		say(post);
+		//say(post);
 		res.status(200).json(post);
 	})
 	.catch( err=> { 
@@ -78,15 +78,15 @@ router.post('/', function(req, res) {
 // PUT - update one Employee	/api/employees/:id  
 router.put('/:id', function(req, res) {
 	// check the id
-	//if( !(req.params.id && req.body._id && (req.params.id === req.body._id)) ) {
-//		res.status(400).json({ error: "id's do not match or missing." });
-//	}
-	say(" id = " + req.params.id);
-	say("_id = " + req.body._id);
-	say( Object.keys(req.body));
+	if( !(req.params.id && req.body._id && (req.params.id === req.body._id)) ) {
+		res.status(400).json({ error: "id's do not match or missing." });
+	}
+//	say(" id = " + req.params.id);
+//	say("_id = " + req.body._id);
+//	say( Object.keys(req.body));
 	Employee
 		.findByIdAndUpdate( req.params.id, { $set: req.body }, { new: true } )
-		.then( updatedPost=> res.status(204).end() )
+		.then( updatedPost=> res.status(200).end() )
 		.catch( err=> 	res.status(500).json({message: "Could not Update"}));
 });
 

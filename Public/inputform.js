@@ -154,7 +154,7 @@ function buildEmployeeDataForm(employee, n,  editable, withData, method) {
 
 	if (editable && n<0) {
 		s += `
-			<input type="submit" class="in-form-button" name="in-cancel" value="Cancel"> 
+			<button class="in-form-button" name="in-cancel">Cancel</button> 
 			<input type="submit" class="in-form-button" name="in-save"   value="Save"  >
 			`;
 	}
@@ -247,12 +247,12 @@ function buildEmployeeDataForm(employee, n,  editable, withData, method) {
 
 	if (editable) {
 		s += `
-			<input type="submit" class="in-form-button" name="in-cancel" value="Cancel"> 
+			<button class="in-form-button" name="in-cancel">Cancel</button> 
 			<input type="submit" class="in-form-button" name="in-save"   value="Save"  >
 			`;
 	} else {
 		s += `
-			<input type="submit" class="in-form-button" name="in-cancel" value="Return to List"> 
+			<button class="in-form-button" name="in-cancel" type="button">Return to List</button> 
 			<input type="submit" class="in-form-button" name="in-edit" value="Edit"> 
 			`;
 	}////
