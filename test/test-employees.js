@@ -40,6 +40,9 @@ describe('Employee API', function() {
 
 	});//POST
 
+	describe('DELETE Route', function() {
+	}
+
 	describe('PUT Route', function() {
 		it('Should update items on PUT', function() {
 			const emp = generateRandomEmployee();
