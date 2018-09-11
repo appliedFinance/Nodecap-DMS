@@ -17,8 +17,10 @@ app.use(express.static("Public"));
 
 //const {EmployeeRouter} = require('./Router/EmployeeRouter');
 const {router: EmployeeRouter} = require('./Router/EmployeeRouter');
+const {router: TestRouter} = require('./Router/TestRouter');
 
 app.use('/api/employees', EmployeeRouter);
+app.use('/test', TestRouter);
 
 app.use('*', function (req, res) {
   res.status(404).json({ message: "I don't know what that means?" });

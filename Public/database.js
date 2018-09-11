@@ -61,37 +61,22 @@ function refreshEmployeeData() {
 	//
 	// Talk To DataBase Here
 	//
-
 	let n = 0;
 	$.ajax({ url:
 		//"https://secret-beyond-76532.herokuapp.com/api/employees",
 		"/api/employees",
 		success: function(list) {
-			say("GET SUCCESSFUL");
+			//say("GET SUCCESSFUL");
 			for(let i=0; i<list.length; i++)
 			{
-				//say(list);
 				empData[i]= list[i];
 				empData[i].id = list[i]._id;	
-				say("*****************************");
-				say(empData[i]);
-				say("*****************************");
-				//say(empData[i].id);
-				//say(empData[i]._id);
 			}
 			empData.sort((a,b) => sortByLastName(a,b));
 			$('.js-data').html("");
 			createAADir();
 		}
 	});
-
-	/*
-		for(let i=0; i<FakeEmployeeData.length; i++)
-		{
-		empData[i]= FakeEmployeeData[i];
-		}
-		*/
-	// sort the employees by their last name
 }
 
 
@@ -108,7 +93,10 @@ function sortByLastName(a,b) {
 	return 0;
 }
 
+function showArrayInConsole(list) {
 
+
+}
 
 /*function ZdisplayEmpView(i) {
 	say("+ displayEmpView( " + i + " )");

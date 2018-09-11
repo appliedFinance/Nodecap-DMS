@@ -5,12 +5,27 @@ const router = express.Router();
 
 const { Employee } = require('../Models/models');
 
+// Report Area
+
+function genReport(data, typeOfReport) {
+	let returnObj = {'employees': data};
+	say( typeOfReport ) ;
+
+	return returnObj;
+}
 
 // GET - all Employees  /api/employees
 router.get('/', function(req, res) {
 	Employee
 		.find()
-		.then( p=> res.json(p) )
+		.then( function(p) {
+
+			if (req.query.report) {
+				res.json( genReport(p, req.query.report) );
+			} else {
+				res.json(p) 
+			}
+		})
 		.catch( err=> {
 			say(err);
 			res.status(500).json({sig:'Internal server error'});

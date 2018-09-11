@@ -41,7 +41,9 @@ describe('Employee API', function() {
 	});//POST
 
 	describe('DELETE Route', function() {
-	}
+	});
+	describe('GET Route', function() {
+	});
 
 	describe('PUT Route', function() {
 		it('Should update items on PUT', function() {
