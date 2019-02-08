@@ -10,7 +10,7 @@ const { Employee } = require('../Models/models');
 function genReport(data, typeOfReport) {
 	let returnObj = {'employees': data};
 	say( typeOfReport ) ;
-
+	say( "" );
 	return returnObj;
 }
 
